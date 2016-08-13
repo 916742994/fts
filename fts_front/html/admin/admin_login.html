@@ -1,0 +1,160 @@
+<!--找回密码界面-->
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>Admin Login</title>
+    <link href="../../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/bootstrap-social.css" rel="stylesheet" type="text/css">
+    <link href="../../css/templatemo_style.css" rel="stylesheet" type="text/css">
+    <link href="../../css/button.style.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="../../css/tabslet.css">
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/jquery.tabslet.min.js"></script>
+    <script src="../../js/initializers.js"></script>
+
+
+    <link href="../../css/icheck/skins/square/blue.css" rel="stylesheet">
+    <script src="../../js/icheck/icheck.js?v=1.0.2"></script>
+    <script>
+        $(document).ready(function(){
+            $('.demo-list input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                increaseArea: '20%'
+            });
+        });
+    </script>
+</head>
+<body  class="templatemo-bg-image-1">
+<br/><br/><br/>
+
+<div class="col-md-12">
+    <form class="form-horizontal templatemo-login-form-2" role="form" action=""   method="post"
+          style="margin: 0 auto">
+        <div class='tabs tabs_default'>
+            <ul class='horizontal' style="padding-left: 0" >
+                <li><a href="#tab-1">Support Staff</a></li>
+                <li><a href="#tab-2">Super Admin</a></li>
+            </ul>
+            <br/>
+            <div   id='tab-1'>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group" style="margin-left:15%">
+                            <div class="col-md-9">
+                                <label for="username1" class="control-label" style="font-size: larger;">Support Staff</label>
+                                <div class="templatemo-input-icon-container">
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" class="form-control" id="username1"
+                                           placeholder="Username">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-left:15%">
+                            <div class="col-md-9">
+                                <label for="password1" class="control-label"  style="font-size: larger;">Password</label>
+                                <div class="templatemo-input-icon-container">
+                                    <i class="fa fa-lock"></i>
+                                    <input type="password" class="form-control" id="password1" placeholder="password">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-left:15%">
+                            <div class="col-md-5" style="display: inline">
+                                <label for="verification1" class="control-label" style="font-size: larger;">Verification Code</label>
+                                <div class="templatemo-input-icon-container">
+                                    <i class="fa fa-edit"></i>
+                                    <input type="text" class="form-control" id="verification1" name="verification"
+                                           placeholder="verification code">
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            验证码图片
+                        </div>
+
+                        <div class="form-group"  style="margin-left:15%">
+                            <div class="col-md-9">
+                                <div class="demo-list">
+                                    <label>
+                                        <input type="checkbox" id="remember1" checked>
+                                        <label for="remember" style="font-size: larger"> Remember me</label>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"  style="margin-left:15%">
+                            <div class="col-md-9">
+                                <input type="submit" value="Log In" class="button button-royal button-pill">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id='tab-2'>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group" style="margin-left:15%">
+                            <div class="col-md-9">
+                                <label for="username2" class="control-label" style="font-size: larger;">Supper Admin</label>
+                                <div class="templatemo-input-icon-container">
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" class="form-control" id="username2"
+                                           placeholder="Username /Email /Phone Number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-left:15%">
+                            <div class="col-md-9">
+                                <label for="password" class="control-label"  style="font-size: larger;">Password</label>
+                                <div class="templatemo-input-icon-container">
+                                    <i class="fa fa-lock"></i>
+                                    <input type="password" class="form-control" id="password" placeholder="password">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-left:15%">
+                            <div class="col-md-5" style="display: inline">
+                                <label for="verification" class="control-label" style="font-size: larger;">Verification Code</label>
+                                <div class="templatemo-input-icon-container">
+                                    <i class="fa fa-edit"></i>
+                                    <input type="text" class="form-control" id="verification" name="verification"
+                                           placeholder="verification code">
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            验证码图片
+                        </div>
+
+                        <div class="form-group"  style="margin-left:15%">
+                            <div class="col-md-9">
+                                <div class="demo-list">
+                                    <label>
+                                        <input type="checkbox" id="remember" checked>
+                                        <label for="remember" style="font-size: larger"> Remember me</label>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group"  style="margin-left:15%">
+                            <div class="col-md-9">
+                                <input type="submit" value="Log In" class="button button-royal button-pill">
+                                <a href="../common/find-password.html" class="text-left" style="font-size: small;display: inline">forget password?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
