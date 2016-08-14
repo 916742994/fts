@@ -26,13 +26,22 @@
                 increaseArea: '20%'
             });
         });
+
+        function submitForm(id) {
+            if (id == 1) {/*客服提交*/
+                $("#adminForm").attr("action", "");
+            } else if (id == 2) {/*管理员提交*/
+                $("#adminForm").attr("action", "./super/index.html");
+            }
+        }
+
     </script>
 </head>
 <body  class="templatemo-bg-image-1">
 <br/><br/><br/>
 
 <div class="col-md-12">
-    <form class="form-horizontal templatemo-login-form-2" role="form" action=""   method="post"
+    <form class="form-horizontal templatemo-login-form-2" role="form" action="" method="post" id="adminForm"
           style="margin: 0 auto">
         <div class='tabs tabs_default'>
             <ul class='horizontal' style="padding-left: 0" >
@@ -93,7 +102,8 @@
                         </div>
                         <div class="form-group"  style="margin-left:15%">
                             <div class="col-md-9">
-                                <input type="submit" value="Log In" class="button button-royal button-pill">
+                                <input type="submit" value="Log In" class="button button-royal button-pill"
+                                       onclick="submitForm(1)">
                             </div>
                         </div>
                     </div>
@@ -154,7 +164,8 @@
 
                         <div class="form-group"  style="margin-left:15%">
                             <div class="col-md-9">
-                                <input type="submit" value="Log In" class="button button-royal button-pill">
+                                <input type="submit" value="Log In" class="button button-royal button-pill"
+                                       onclick="submitForm(2)">
                                 <a href="../common/find-password.html" class="text-left" style="font-size: small;display: inline">forget password?</a>
                             </div>
                         </div>
