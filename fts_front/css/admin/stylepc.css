@@ -12,9 +12,10 @@ body {
 }
 
 .container .menu {
-    margin-left: 5%;
+    margin-left: 3%;
     float: left;
     border-right: 1px solid #aaa;
+    min-width: 200px;
     width: 20%;
 }
 
@@ -62,7 +63,7 @@ body {
 .container .content {
     margin-top: 15px;
     width: 65%;
-    margin-left: 30%;
+    margin-left: 28%;
 }
 
 .container .content .tab {
