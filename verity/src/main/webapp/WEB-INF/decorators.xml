@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--指明模板文件的位置-->
+<decorators defaultdir="/WEB-INF/decorator/">
+    <excludes>
+        <!--不修饰这些文件夹里面的文件，即跳过这些文件夹-->
+        <pattern>/js/*</pattern>
+        <pattern>/image/*</pattern>
+        <pattern>/css/*</pattern>
+    </excludes>
+    <!-- 定义装饰器要过滤的页面 -->
+    <!--可以定义多个decorator-->
+    <decorator name="login_decorate" page="login_decorate.ftl">
+        <!--<pattern>/login/login</pattern>-->
+    </decorator>
+</decorators>

@@ -2,6 +2,147 @@
         "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
     <display-name>Archetype Created Web Application</display-name>
+
+    <!--&lt;!&ndash; SpringSecurity必须的filter &ndash;&gt;-->
+    <!--<filter>-->
+    <!--<filter-name>springSecurityFilterChain</filter-name>-->
+    <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+    <!--</filter>-->
+
+    <!--<filter-mapping>-->
+    <!--<filter-name>springSecurityFilterChain</filter-name>-->
+    <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+
+    <!--<context-param>-->
+    <!--<param-name>contextConfigLocation</param-name>-->
+    <!--<param-value>-->
+    <!--&lt;!&ndash;classpath:spring-security.xml&ndash;&gt;-->
+    <!--classpath:applicationContext.xml-->
+    <!--</param-value>-->
+    <!--</context-param>-->
+    <!--&lt;!&ndash; 加载contextConfigLocation则交给监听来实现  &ndash;&gt;-->
+    <!--<listener>-->
+    <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+    <!--</listener>-->
+
+
+    <!-- Log4j配置 -->
+
+    <!-- 加载log4j配置文件 -->
+    <!--<context-param>-->
+    <!--<param-name>log4jConfigLocation</param-name>-->
+    <!--<param-value>classpath:log4j.xml</param-value>-->
+    <!--</context-param>-->
+
+    <!--<listener>-->
+    <!--<listener-class>org.springframework.web.util.Log4jConfigListener-->
+    <!--</listener-class>-->
+    <!--</listener>-->
+
+    <!--sitemesh 过滤-->
+    <!--对系统中所有 url 请求均使用 sitemesh Filter 进行拦截。-->
+    <!--使得在所有地方都可以用sitemesh模板进行修饰-->
+    <filter>
+        <filter-name>SITEMESH</filter-name>
+        <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SITEMESH</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--编码-->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>
+            org.springframework.web.filter.CharacterEncodingFilter
+        </filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!--spring mvc-->
+    <servlet>
+        <servlet-name>springMVC</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    </servlet>
+
+    <!--sitemesh freemarker-->
+    <!-- sitemesh 和 freemarker的整合 -->
+    <servlet>
+        <servlet-name>SITEMESH-FREEMARKER</servlet-name>
+        <servlet-class>com.opensymphony.module.sitemesh.freemarker.FreemarkerDecoratorServlet</servlet-class>
+        <!--设置sitemesh模板的路径，/ 是指模板文件可以放在 webapp下面的任何地方-->
+        <init-param>
+            <param-name>TemplatePath</param-name>
+            <param-value>/</param-value>
+        </init-param>
+        <!--设置编码，解决乱码问题-->
+        <init-param>
+            <param-name>default_encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!--指明模板文件必须是 ftl文件形式-->
+    <servlet-mapping>
+        <servlet-name>SITEMESH-FREEMARKER</servlet-name>
+        <url-pattern>*.ftl</url-pattern>
+    </servlet-mapping>
+    <!--sitemesh freemarker end-->
+
+
+    <!--所有请求有必须经由springMVC-->
+    <!--然后转交给DispatcherServlet，具体类在上面-->
+    <servlet-mapping>
+        <servlet-name>springMVC</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- 设置默认过滤器，指明：遇到这些文件直接访问而不是经由springMVC -->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/js/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/image/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/css/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/plugins/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/fonts/*</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>VCode</servlet-name>
+        <servlet-class>com.verity.util.VCode</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VCode</servlet-name>
+        <url-pattern>/util/VCode</url-pattern>
+    </servlet-mapping>
+
 </web-app>
